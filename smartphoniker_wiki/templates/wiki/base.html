@@ -1,0 +1,26 @@
+{% extends "wiki/base_site.html" %}
+
+{% block wiki_site_title %} Smartphoniker - Wiki{% endblock %}
+
+{% block wiki_header_branding %}
+<a class="navbar-brand" href="/">Smartphoniker</a>
+{% endblock %}
+
+{% block wiki_header_navlinks %}
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    {% if user.is_superuser %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'wiki:signup' %}">Nutzer hinzufügen</a>
+    </li>
+    {% endif %}
+</ul>
+{% endblock %}
+
+
+{% block wiki_footer_logo %}
+<a href="https://github.com/django-wiki/django-wiki" class="float-right"><img
+        src="https://smartphoniker.shop/static/images/smartphoniker-logo.svg" width="100" /></a>
+{% endblock %}

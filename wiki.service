@@ -1,0 +1,17 @@
+[Unit]
+After=network.target
+
+[Service]
+User=wiki
+Group=psacln
+
+WorkingDirectory=/var/www/vhosts/wiki.smartphoniker.shop/wiki
+Environment=/var/www/vhosts/wiki.smartphoniker.shop/wiki/venv/bin
+ExecStart=/var/www/vhosts/wiki.smartphoniker.shop/wiki/venv/bin/gunicorn -w 4 -b localhost:8000 smartphoniker_wiki.wsgi
+Restart=always
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+Alias=wiki
+WantedBy=multi-user.target
